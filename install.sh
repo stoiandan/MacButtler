@@ -73,4 +73,5 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool
 defaults write com.apple.finder ShowPathbar -bool true
 
 
-
+#disable natural scrolling
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
