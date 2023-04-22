@@ -1,4 +1,4 @@
-#!/bin/env zsh
+#!/bin/zsh
 
 if [ "$#" -ne 2 ] then
   echo "Please provide your e-mail and Name"
