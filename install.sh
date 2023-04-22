@@ -1,6 +1,7 @@
 #!/bin/zsh
 
-if [ "$#" -ne 2 ] then
+if [ "$#" -ne 2 ] 
+then
   echo "Please provide your e-mail and Name"
   echo "install.sh tim@apple.com \"Tim Apple\" "
   exit 1
