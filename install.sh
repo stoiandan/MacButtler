@@ -30,6 +30,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 sed 's/➜ :%/%n@%m ➜ :%/' ~/.oh-my-zsh/themes/robbyrussell.zsh-theme > !$
 
 
+## configure git
+git config --global user.name "$GIT_NAME"
+git config --global user.email "$EMAIL"
+
 #Create a new SSH-Key for git
 touch ~/.ssh/config
 
