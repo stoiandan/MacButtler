@@ -1,6 +1,9 @@
 #!/bin/env zsh
 
 
+#update macOS
+softwareupdate -i
+
 #Install xcode tools
 xcode-select --install
 
