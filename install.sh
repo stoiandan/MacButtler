@@ -14,14 +14,17 @@ NAME=$2
 echo "Setting up environment with email $EMAIL and with name: $NAME"
 
 #update macOS
+echo "Installing macOS updateds..."
 softwareupdate -i
 
 #Install xcode tools
-xcode-select --install &> /dev/null
+echo "Installing command line tools"
+xcode-select --install &
 
-until $(xcode-select -p &> /dev/null); do
-    sleep 5;
-done
+PID=$!
+
+wait $PID
+
 
 # Copy .vimrc file
 # This file contains a custom setup to enable higlight in search, line numbering
@@ -32,8 +35,11 @@ cp .vimrc ~/.vimrc
 
 # Install Homebrew and Command Line Tools 
 echo "Installing Homebrew"
-NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" &
 
+PID=$!
+
+wait $PID
 
 # Finish installing Homebrew
 echo '# Set PATH, MANPATH, etc., for Homebrew.' >> ~/.zprofile
@@ -57,7 +63,7 @@ git config --global user.email "$EMAIL"
 
 #Create a new SSH-Key for git
 echo "Setting up SSH keys"
-mkdir -p ~/.ssh
+mkdir ~/.ssh
 touch ~/.ssh/config
 
 echo << EOF > ~/.ssh/config
@@ -113,4 +119,5 @@ brew install --cask discord battle-net element iina mactex dotnet-sdk steam tran
 
 
 
-echo "Done!"
+echo "Done! ;)"
+echo "Your  Mac 🧑‍💻 is ready!"
