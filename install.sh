@@ -1,5 +1,13 @@
 #!/bin/env zsh
 
+if [ "$#" -nq 2 ] then
+  echo "Please provide your e-mail and Name"
+  echo "install.sh tim@apple.com 'Tim Apple' "
+fi
+
+
+EMAIL=$1
+GIT_NAME=$2
 
 #update macOS
 softwareupdate -i
@@ -86,3 +94,7 @@ defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 # Install apps
 brew install --cask discord battle-net element iina mactex dotnet-sdk steam transmission visual-studio-code
+
+
+
+echo "Done!"
