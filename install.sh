@@ -47,7 +47,7 @@ echo "Installing Oh-My-Zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Edit default theme to reflect username@machine_name in terminal prompt
-sed 's/➜ :%/%n@%m ➜ :%/' ~/.oh-my-zsh/themes/robbyrussell.zsh-theme > !$
+sed -i -e 's/➜ :%/%n@%m ➜ :%/g' ~/.oh-my-zsh/themes/robbyrussell.zsh-theme 
 
 
 ## configure git
