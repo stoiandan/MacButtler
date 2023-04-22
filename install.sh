@@ -75,3 +75,7 @@ defaults write com.apple.finder ShowPathbar -bool true
 
 #disable natural scrolling
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+
+
+# Install apps
+brew install --cask discord battle-net element iina mactex dotnet-sdk steam transmission visual-studio-code
