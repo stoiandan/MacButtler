@@ -24,9 +24,9 @@ softwareupdate -i
 echo "Installing command line tools"
 xcode-select --install &
 
-PID=$!
-
-wait $PID
+until $(xcode-select --print-path &> /dev/null); do
+  sleep 5;
+done
 
 
 # Copy .vimrc file
