@@ -1,5 +1,8 @@
 #!/bin/zsh
 
+#check root access for homebrew
+
+
 if [ "$#" -ne 2 ] 
 then
   echo "Please provide your e-mail and Name"
@@ -42,9 +45,8 @@ PID=$!
 wait $PID
 
 # Finish installing Homebrew
-echo '# Set PATH, MANPATH, etc., for Homebrew.' >> ~/.zprofile
-echo 'eval "$(/opt/homebrew/bin/brew shellevn)"' >> ~/.zprofile
-eval "$(/opt/homebrew/bin/brew shellevn)"
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 
 # Install Oh-My-Zsh
