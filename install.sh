@@ -115,7 +115,15 @@ defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 # Install apps
 echo "Installing apps from homebrew..."
-brew install --cask discord battle-net element iina mactex dotnet-sdk steam transmission visual-studio-code
+
+sudo -v -p "Please enter sudo password:"
+
+
+brew install --cask discord battle-net element iina mactex dotnet-sdk steam transmission visual-studio-code &
+
+PID=$!
+
+wait $PID
 
 
 echo "Restarting dock"
