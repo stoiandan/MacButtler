@@ -46,7 +46,11 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Install Oh-My-Zsh
 echo "Installing Oh-My-Zsh"
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" &
+
+PID=$!
+
+wait $PID
 
 # Edit default theme to reflect username@machine_name in terminal prompt
 sed -i -e 's/➜ :%/%n@%m ➜ :%/g' ~/.oh-my-zsh/themes/robbyrussell.zsh-theme 
@@ -112,6 +116,34 @@ defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 # Install apps
 echo "Installing apps from homebrew..."
 brew install --cask discord battle-net element iina mactex dotnet-sdk steam transmission visual-studio-code
+
+
+echo "Restarting dock"
+killall Dock
+
+
+##Setup Finder
+
+#Show status bar
+defaults write com.apple.Finder ShowStatusBar -bool true
+
+#Show status bar
+defaults write com.apple.Finder ShowStatusbar -bool true
+
+
+echo "Restarting Finder"
+killall Finder
+
+
+##Safari
+
+#show bookmarks
+defaults write com.apple.Safari ShowFavoritesBar -bool true
+
+#enable developer
+defaults write com.apple.Safari IncludeDevelopMenu -bool true
+
+
 
 
 
