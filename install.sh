@@ -20,15 +20,6 @@ echo "Setting up environment with email $EMAIL and with name: $NAME"
 echo "Installing macOS updateds..."
 softwareupdate -i
 
-#Install xcode tools
-echo "Installing command line tools"
-xcode-select --install &
-
-until $(xcode-select --print-path &> /dev/null); do
-  sleep 5;
-done
-
-
 # Copy .vimrc file
 # This file contains a custom setup to enable higlight in search, line numbering
 # and other features of vim 
@@ -38,6 +29,9 @@ cp ${0:a:h}/.vimrc ~/.vimrc
 
 # Install Homebrew and Command Line Tools 
 echo "Installing Homebrew"
+
+sudo -v -p "Please enter sudo password:"
+
 NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" &
 
 PID=$!
