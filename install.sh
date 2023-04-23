@@ -33,8 +33,8 @@ done
 # This file contains a custom setup to enable higlight in search, line numbering
 # and other features of vim 
 echo "Setting up vim..."
-cp .vimrc ~/.vimrc 
 
+cp ${0:a:h}/.vimrc ~/.vimrc
 
 # Install Homebrew and Command Line Tools 
 echo "Installing Homebrew"
