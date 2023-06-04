@@ -119,7 +119,7 @@ echo "Installing apps from homebrew..."
 sudo -v -p "Please enter sudo password:"
 
 
-brew install --cask discord battle-net element iina mactex dotnet-sdk steam transmission visual-studio-code &
+brew install --cask discord battle-net element iina mactex dotnet-sdk steam transmission visual-studio-code macdown &
 
 PID=$!
 
