@@ -76,7 +76,7 @@ EOF
 
 
 # generate a new ssh-keygen
-ssh-keygen -t ed25519 -C "$EMAIL" -q -P "" -f id_ed25519
+ssh-keygen -t ed25519 -C "$EMAIL" -q -P "" -f ~/.ssh/id_ed25519
 
 # Start SSH agent
 eval "$(ssh-agent -s)"
