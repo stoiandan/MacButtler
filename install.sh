@@ -91,14 +91,14 @@ pbcopy < ~/.ssh/id_ed25519.pub
 ## Apperance defaults ##
 echo "Configuring Desktop settings"
 # Dock size
-defaults write com.apple.dock magnification -bool true
+defaults write com.apple.dock "magnification" -bool "true" && killall Dock
 defaults write com.apple.dock largesize 65
 
 #Minimize to app
-defaults write com.apple.dock minimize-to-application -bool true
+defaults write com.apple.dock "minimize-to-application" -bool "true" && killall Dock
 
 # Do not re-arrage spaces based on usage
-defaults write com.apple.dock mru-spaces -bool false
+defaults write com.apple.dock "mru-spaces" -bool "true" && killall Dock
 
 #Tap to click
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
@@ -106,11 +106,11 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool
 
 
 #Finder show path bar
-defaults write com.apple.finder ShowPathbar -bool true
+defaults write com.apple.finder "ShowPathba"r -bool "true" && killall Dock
 
 
 #disable natural scrolling
-defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool "false" && killall Dock
 
 
 # Install apps
