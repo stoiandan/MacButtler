@@ -67,7 +67,7 @@ mkdir ~/.ssh
 touch ~/.ssh/config
 
 
-echo << EOF > ~/.ssh/config
+cat << EOF > ~/.ssh/config
 Host github.com
   AddKeysToAgent yes
   UseKeychain yes
