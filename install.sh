@@ -66,6 +66,7 @@ echo "Setting up SSH keys"
 mkdir ~/.ssh
 touch ~/.ssh/config
 
+
 echo << EOF > ~/.ssh/config
 Host github.com
   AddKeysToAgent yes
@@ -91,8 +92,8 @@ pbcopy < ~/.ssh/id_ed25519.pub
 ## Apperance defaults ##
 echo "Configuring Desktop settings"
 # Dock size
-defaults write com.apple.dock "magnification" -bool "true" && killall Dock
-defaults write com.apple.dock largesize 65
+defaults write com.apple.dock "largesize" -int "78" && killall Dock
+defaults write com.apple.dock "tilesize" -int "55" && killall Dock
 
 #Minimize to app
 defaults write com.apple.dock "minimize-to-application" -bool "true" && killall Dock
