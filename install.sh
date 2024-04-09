@@ -53,7 +53,7 @@ PID=$!
 wait $PID
 
 # Edit default theme to reflect username@machine_name in terminal prompt
-sed -i -e '/^PROMPT=.*/s/➜/%n@%m ➜/g' ~/.oh-my-zsh/themes/robbyrussell.zsh-theme 
+sed -i -e '/^PROMPT=.*/s/➜/%n@%m ➜/g' ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
 
 
 ## configure git
