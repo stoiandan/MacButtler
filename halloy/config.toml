@@ -39,5 +39,10 @@ exclude = "*"
 [buffer.server_messages.quit]
 exclude = "*"
 
+[notifications]
+direct_message = { sound = "peck", show_toast = true }
+
+
 [notifications.highlight]
 sound = "dong"
+show_toast = true
