@@ -120,7 +120,7 @@ echo "Installing apps from homebrew..."
 sudo -v -p "Please enter sudo password:"
 
 
-brew install --cask discord battle-net element iina mactex dotnet-sdk steam transmission visual-studio-code macdown &
+brew install --cask battle-net halloy onyx transmission discord	iina rustdesk	utm dolphin mactex signal visual-studio-code dotnet-sdk mist steam zed && brew install python3
 
 PID=$!
 
