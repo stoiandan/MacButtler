@@ -1,0 +1,43 @@
+# Halloy config.
+#
+# For a complete list of available options,
+# please visit https://halloy.chat/configuration.html
+
+theme = "midnight"
+
+[servers.liberachat]
+nickname = "dan01"
+alt_nicks = ["dan101", "dan_the_guy","dan_the_101_guy"]
+username= ""
+nick_password = ""
+server = "irc.libera.chat"
+channels = ["#halloy", "##programming", "#networking", "##apple", "#archlinux", "#fedora", "#hardware", "#linux", "#MacOSX"]
+
+# Replace pane when clicking on channel/user names in a pane,
+
+[actions.buffer]
+click_channel_name = "replace-pane"
+click_username = "replace-pane"
+
+[actions.sidebar]
+buffer = "replace-pane"
+
+[sidebar.unread_indicator]
+title = true
+
+[font]
+size = 14
+
+
+[buffer.channel.topic_banner]
+enabled = true
+
+
+[buffer.server_messages.join]
+exclude = "*"
+
+[buffer.server_messages.quit]
+exclude = "*"
+
+[notifications.highlight]
+sound = "dong"

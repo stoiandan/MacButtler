@@ -162,7 +162,8 @@ defaults write com.apple.Safari ShowFavoritesBar-v2 -bool true
 defaults write com.apple.Safari IncludeDevelopMenu -bool true
 
 
-
+# copy Halloy config
+cp ${0:a:h}/halloy/config.toml ~/Application\ Support/Halloy/config.toml
 
 
 echo "Done! ;)"
