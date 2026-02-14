@@ -156,7 +156,7 @@ killall Finder
 ##Safari
 
 #show bookmarks
-defaults write com.apple.Safari ShowFavoritesBar -bool true
+defaults write com.apple.Safari ShowFavoritesBar-v2 -bool true
 
 #enable developer
 defaults write com.apple.Safari IncludeDevelopMenu -bool true
