@@ -18,7 +18,7 @@ echo "Setting up environment with email $EMAIL and with name: $NAME"
 
 #update macOS
 echo "Installing macOS updateds..."
-softwareupdate -i
+softwareupdate --install --all
 
 # Copy .vimrc file
 # This file contains a custom setup to enable higlight in search, line numbering
@@ -63,8 +63,10 @@ git config --global user.email "$EMAIL"
 
 #Create a new SSH-Key for git
 echo "Setting up SSH keys"
-mkdir ~/.ssh
+mkdir -p ~/.ssh
 touch ~/.ssh/config
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/config
 
 
 cat << EOF > ~/.ssh/config
@@ -92,14 +94,14 @@ pbcopy < ~/.ssh/id_ed25519.pub
 ## Apperance defaults ##
 echo "Configuring Desktop settings"
 # Dock size
-defaults write com.apple.dock "largesize" -int "78" && killall Dock
-defaults write com.apple.dock "tilesize" -int "55" && killall Dock
+defaults write com.apple.dock "largesize" -int "78" && killall Finder
+defaults write com.apple.dock "tilesize" -int "55" && killall Finder
 
 #Minimize to app
-defaults write com.apple.dock "minimize-to-application" -bool "true" && killall Dock
+defaults write com.apple.dock "minimize-to-application" -bool "true" 
 
 # Do not re-arrage spaces based on usage
-defaults write com.apple.dock "mru-spaces" -bool "true" && killall Dock
+defaults write com.apple.dock "mru-spaces" -bool "false"
 
 #Tap to click
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
@@ -107,11 +109,14 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool
 
 
 #Finder show path bar
-defaults write com.apple.finder "ShowPathbar" -bool "true" && killall Dock
+defaults write com.apple.finder "ShowPathbar" -bool "true"
 
 
 #disable natural scrolling
-defaults write NSGlobalDomain com.apple.swipescrolldirection -bool "false" && killall Dock
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool "false"
+
+#kill Finder
+killall Finder
 
 
 # Install apps
@@ -120,7 +125,13 @@ echo "Installing apps from homebrew..."
 sudo -v -p "Please enter sudo password:"
 
 
-brew install --cask battle-net halloy onyx transmission discord	iina rustdesk	utm dolphin mactex signal visual-studio-code dotnet-sdk mist steam zed && brew install python3
+brew install --cask battle-net halloy onyx transmission discord	iina rustdesk	utm dolphin mactex signal visual-studio-code dotnet-sdk mist steam zed
+
+PID=$!
+
+wait $PID
+
+brew install python3
 
 PID=$!
 
@@ -135,9 +146,6 @@ killall Dock
 
 #Show status bar
 defaults write com.apple.Finder ShowStatusBar -bool true
-
-#Show status bar
-defaults write com.apple.Finder ShowStatusbar -bool true
 
 
 echo "Restarting Finder"
