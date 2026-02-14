@@ -104,7 +104,8 @@ defaults write com.apple.dock "minimize-to-application" -bool "true"
 defaults write com.apple.dock "mru-spaces" -bool "false"
 
 #Tap to click
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults write com.apple.AppleMultitouchTrackpad Clicking -int 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -int 1
 
 
 
