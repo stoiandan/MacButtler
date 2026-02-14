@@ -107,7 +107,7 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool
 
 
 #Finder show path bar
-defaults write com.apple.finder "ShowPathba"r -bool "true" && killall Dock
+defaults write com.apple.finder "ShowPathbar" -bool "true" && killall Dock
 
 
 #disable natural scrolling
