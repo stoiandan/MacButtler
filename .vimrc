@@ -12,3 +12,6 @@ set hlsearch
 
 " Ignore capital letters during search.
 set ignorecase
+
+" Use relative numbering
+set relativenumber
