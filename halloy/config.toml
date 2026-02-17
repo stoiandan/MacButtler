@@ -11,7 +11,7 @@ alt_nicks = ["dan101", "dan_the_guy","dan_the_101_guy"]
 username= ""
 nick_password = ""
 server = "irc.libera.chat"
-channels = ["#halloy", "##programming", "#networking", "##apple", "#archlinux", "#fedora", "#hardware", "#linux", "#MacOSX"]
+channels = ["#halloy", "##programming", "#networking", "##apple", "#archlinux", "#fedora", "#hardware", "#linux", "#MacOSX", "#csharp"]
 
 # Replace pane when clicking on channel/user names in a pane,
 
