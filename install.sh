@@ -10,22 +10,28 @@ then
   exit 1
 fi
 
+set -euo pipefail
+IFS=$'\n\t'
 
 EMAIL=$1
 NAME=$2
 
+SCRIPT_DIR=${0:A:h}
+
 echo "Setting up environment with email $EMAIL and with name: $NAME"
 
 #update macOS
+sudo -v -p "Please enter sudo password:"
+
 echo "Installing macOS updateds..."
-softwareupdate --install --all
+sudo softwareupdate --install --all
 
 # Copy .vimrc file
 # This file contains a custom setup to enable higlight in search, line numbering
 # and other features of vim 
 echo "Setting up vim..."
 
-cp ${0:a:h}/.vimrc ~/.vimrc
+cp $SCRIPT_DIR/.vimrc ~/.vimrc
 
 # Install Homebrew and Command Line Tools 
 echo "Installing Homebrew"
@@ -53,7 +59,7 @@ PID=$!
 wait $PID
 
 # Edit default theme to reflect username@machine_name in terminal prompt
-sed -i -e '/^PROMPT=.*/s/➜/%n@%m ➜/g' ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
+sed -i '' -e '/^PROMPT=.*/s/➜/%n@%m ➜/g' ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
 
 
 ## configure git
@@ -69,17 +75,21 @@ chmod 700 ~/.ssh
 chmod 600 ~/.ssh/config
 
 
-cat << EOF > ~/.ssh/config
-Host github.com
-  AddKeysToAgent yes
-  UseKeychain yes
-  IdentityFile ~/.ssh/id_ed25519
-EOF
+if ! grep -q '^Host github\.com$' ~/.ssh/config; then
+  cat << EOF > ~/.ssh/config
+  Host github.com
+    AddKeysToAgent yes
+    UseKeychain yes
+    IdentityFile ~/.ssh/id_ed25519
+  EOF
+fi
 
 
 
 # generate a new ssh-keygen
-ssh-keygen -t ed25519 -C "$EMAIL" -q -P "" -f ~/.ssh/id_ed25519
+if [[ ! -f ~/.ssh/id_ed25519 ]]; then
+  ssh-keygen -t ed25519 -C "$EMAIL" -q -P "" -f ~/.ssh/id_ed25519
+fi
 
 # Start SSH agent
 eval "$(ssh-agent -s)"
@@ -116,31 +126,25 @@ defaults write com.apple.finder "ShowPathbar" -bool "true"
 #disable natural scrolling
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
-#kill Finder
-killall Dock
 
 
 # Install apps
 echo "Installing apps from homebrew..."
 
-sudo -v -p "Please enter sudo password:"
 
 
-brew install --cask battle-net halloy onyx transmission discord	iina rustdesk	utm dolphin mactex signal visual-studio-code dotnet-sdk mist steam zed &
+brew install --cask battle-net halloy onyx transmission discord	iina rustdesk	utm dolphin mactex signal visual-studio-code dotnet-sdk mist steam zed
 
-PID=$!
 
-wait $PID
+brew install python3 
 
-brew install python3 &
 
-PID=$!
-
-wait $PID
 
 
 echo "Restarting dock"
-killall Dock
+killall Dock || true
+killall Finder || true
+killall SystemUIServer || true
 
 
 ##Setup Finder
@@ -160,7 +164,7 @@ defaults write com.apple.Safari IncludeDevelopMenu -bool true
 
 
 # copy Halloy config
-cp ${0:a:h}/halloy/config.toml ~/Library/Application\ Support/Halloy/config.toml
+cp $SCRIPT_DIR/halloy/config.toml ~/Library/Application\ Support/Halloy/config.toml
 
 
 echo "Done! ;)"
