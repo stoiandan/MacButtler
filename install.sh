@@ -94,14 +94,14 @@ pbcopy < ~/.ssh/id_ed25519.pub
 ## Apperance defaults ##
 echo "Configuring Desktop settings"
 # Dock size
-defaults write com.apple.dock "largesize" -int "78" && killall Finder
-defaults write com.apple.dock "tilesize" -int "55" && killall Finder
+defaults write com.apple.dock "largesize" -int 78
+defaults write com.apple.dock "tilesize" -int 55
 
 #Minimize to app
-defaults write com.apple.dock "minimize-to-application" -bool "true" 
+defaults write com.apple.dock "minimize-to-application" -bool true 
 
 # Do not re-arrage spaces based on usage
-defaults write com.apple.dock "mru-spaces" -bool "false"
+defaults write com.apple.dock "mru-spaces" -bool false
 
 #Tap to click
 defaults write com.apple.AppleMultitouchTrackpad Clicking -int 1
@@ -114,10 +114,10 @@ defaults write com.apple.finder "ShowPathbar" -bool "true"
 
 
 #disable natural scrolling
-defaults write NSGlobalDomain com.apple.swipescrolldirection -bool "false"
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 #kill Finder
-killall Finder
+killall Dock
 
 
 # Install apps
@@ -126,13 +126,13 @@ echo "Installing apps from homebrew..."
 sudo -v -p "Please enter sudo password:"
 
 
-brew install --cask battle-net halloy onyx transmission discord	iina rustdesk	utm dolphin mactex signal visual-studio-code dotnet-sdk mist steam zed
+brew install --cask battle-net halloy onyx transmission discord	iina rustdesk	utm dolphin mactex signal visual-studio-code dotnet-sdk mist steam zed &
 
 PID=$!
 
 wait $PID
 
-brew install python3
+brew install python3 &
 
 PID=$!
 
@@ -148,9 +148,6 @@ killall Dock
 #Show status bar
 defaults write com.apple.Finder ShowStatusBar -bool true
 
-
-echo "Restarting Finder"
-killall Finder
 
 
 ##Safari
