@@ -164,7 +164,7 @@ defaults write com.apple.Safari IncludeDevelopMenu -bool true
 
 
 # copy Halloy config
-cp $SCRIPT_DIR/halloy/config.toml ~/Library/Application\ Support/Halloy/config.toml
+cp $SCRIPT_DIR/halloy/* ~/Library/Application\ Support/halloy/
 
 
 echo "Done! ;)"
