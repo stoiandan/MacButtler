@@ -58,6 +58,17 @@ PID=$!
 
 wait $PID
 
+#Install Rust
+echo "Installing Rust... "
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
+PID=$!
+
+wait $PID
+
+echo "Done installing Rust! 🦀"
+
+
 # Edit default theme to reflect username@machine_name in terminal prompt
 sed -i '' -e '/^PROMPT=.*/s/➜/%n@%m ➜/g' ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
 
