@@ -31,7 +31,7 @@ sudo softwareupdate --install --all
 # and other features of vim 
 echo "Setting up vim..."
 
-cp $SCRIPT_DIR/.vimrc ~/.vimrc
+cp "$SCRIPT_DIR"/.vimrc ~/.vimrc
 
 # Install Homebrew and Command Line Tools 
 echo "Installing Homebrew"
@@ -87,7 +87,7 @@ chmod 600 ~/.ssh/config
 
 
 if ! grep -q '^Host github\.com$' ~/.ssh/config; then
-  cat << EOF > ~/.ssh/config
+  cat << EOF >> ~/.ssh/config
   Host github.com
     AddKeysToAgent yes
     UseKeychain yes
@@ -175,7 +175,7 @@ defaults write com.apple.Safari IncludeDevelopMenu -bool true
 
 
 # copy Halloy config
-cp "$SCRIPT_DIR"/halloy/* "~/Library/Application Support/halloy/"
+cp "$SCRIPT_DIR"/halloy/*  ~"/Library/Application Support/halloy/"
 
 
 echo "Done! ;)"
