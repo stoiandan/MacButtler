@@ -142,7 +142,7 @@ defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 # Install apps
 
 
-if [ "$SKIP_APPS" = "true" ]; then
+if [ -n "${SKIP_APPS:-}" ]; then
   echo "Skipping app installation; except for halloy"
   brew install --cask halloy
 else
