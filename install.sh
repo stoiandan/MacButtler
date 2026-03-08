@@ -115,8 +115,8 @@ pbcopy < ~/.ssh/id_ed25519.pub
 ## Apperance defaults ##
 echo "Configuring Desktop settings"
 # Dock size
-defaults write com.apple.dock "largesize" -int 78
-defaults write com.apple.dock "tilesize" -int 55
+defaults write com.apple.dock "largesize" -int 70
+defaults write com.apple.dock "tilesize" -int 46
 
 #Minimize to app
 defaults write com.apple.dock "minimize-to-application" -bool true 
@@ -154,7 +154,6 @@ brew install python3
 
 echo "Restarting dock"
 killall Dock || true
-killall Finder || true
 killall SystemUIServer || true
 
 
