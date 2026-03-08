@@ -7,3 +7,9 @@ To use MacButtler just replace the placeholders form this command with your actu
 ```zsh
 MAC_BUTTLER_TMP=$(mktemp -d) && cd $MAC_BUTTLER_TMP && curl -L --output mac_buttler.zip https://github.com/stoiandan/MacButtler/archive/refs/heads/main.zip && unzip mac_buttler.zip && chmod +x MacButtler-main/install.sh && MacButtler-main/install.sh EMAIL "FULL NAME"
 ```
+
+## Testing
+If you'd like to test the script only or just simply skip the instalation of apps, you can use:
+```zsh
+SKIP_APPS=1 MAC_BUTTLER_TMP=$(mktemp -d) && cd $MAC_BUTTLER_TMP && curl -L --output mac_buttler.zip https://github.com/stoiandan/MacButtler/archive/refs/heads/main.zip && unzip mac_buttler.zip && chmod +x MacButtler-main/install.sh && MacButtler-main/install.sh EMAIL "FULL NAME"
+```
