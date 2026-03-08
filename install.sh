@@ -140,16 +140,16 @@ defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 
 # Install apps
-echo "Installing apps from homebrew..."
 
 
-
-brew install --cask battle-net halloy onyx transmission discord iina rustdesk utm dolphin mactex signal visual-studio-code dotnet-sdk mist steam zed appcleaner
-
-
-brew install python3 
-
-
+if [ "$SKIP_APPS" = "true" ]; then
+  echo "Skipping app installation; except for halloy"
+  brew install --cask halloy
+else
+  echo "Installing apps from homebrew..."
+  brew install --cask battle-net halloy onyx transmission discord iina rustdesk utm dolphin mactex signal visual-studio-code dotnet-sdk mist steam zed appcleaner
+  brew install python3 
+fi
 
 
 echo "Restarting dock"
