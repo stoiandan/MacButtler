@@ -40,7 +40,7 @@ exclude = "*"
 exclude = "*"
 
 [notifications]
-direct_message = { sound = "peck", show_toast = true }
+direct_message = { sound = "peck", show_toast = true, exclude = { users = ["NickServ", "ChanServ"] } }
 
 
 [notifications.highlight]
