@@ -87,12 +87,12 @@ chmod 600 ~/.ssh/config
 
 
 if ! grep -q '^Host github\.com$' ~/.ssh/config; then
-  cat << EOF >> ~/.ssh/config
+  cat <<EOF >> ~/.ssh/config
   Host github.com
     AddKeysToAgent yes
     UseKeychain yes
     IdentityFile ~/.ssh/id_ed25519
-  EOF
+EOF
 fi
 
 
