@@ -45,7 +45,16 @@ PID=$!
 wait $PID
 
 # Finish installing Homebrew
-(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.zprofile
+
+#Check if config is not already present
+$BREW_EVAL='eval "$(/opt/homebrew/bin/brew shellenv)"'
+if ! grep -Fq "$BREW_EVAL" ~/.zprofile; then
+   {
+     echo 
+     echo "# Homebrew"
+     echo "$BREW_EVAL"
+   } >> ~/.zprofile
+fi
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 
