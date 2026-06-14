@@ -187,6 +187,7 @@ mkdir -p ~"/Library/Application Support/halloy/"
 
 cp -R "$SCRIPT_DIR"/halloy/.  ~"/Library/Application Support/halloy/"
 
+cp "$SCRIPT_DIR"/wog/wog2_1.dat  ~"/Library/Containers/com.2dboy.worldofgoo2mac/Data/Library/Application Support/WorldOfGoo2/"
 
 echo "Done! ;)"
 echo "Your  Mac 🧑‍💻 is ready!"
