@@ -156,7 +156,8 @@ if [ -n "${SKIP_APPS:-}" ]; then
   brew install --cask halloy
 else
   echo "Installing apps from homebrew..."
-  brew install --cask battle-net halloy onyx transmission discord iina rustdesk utm dolphin mactex signal visual-studio-code dotnet-sdk mist steam zed appcleaner
+  brew install --cask battle-net halloy onyx transmission discord iina rustdesk utm dolphin vcmi signal visual-studio-code dotnet-sdk mist steam zed appcleaner
+  brew install --cask mactex
   brew install python3 container swiftly
 fi
 
