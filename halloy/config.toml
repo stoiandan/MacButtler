@@ -5,11 +5,14 @@
 
 theme = "midnight"
 
+
+[servers.liberachat.sasl.plain]
+username= "dan01"
+password_keyring = true
+
 [servers.liberachat]
 nickname = "dan01"
 alt_nicks = ["dan101", "dan_the_guy","dan_the_101_guy"]
-username= ""
-nick_password = ""
 server = "irc.libera.chat"
 channels = ["#halloy", "##programming", "#networking", "##apple", "#archlinux", "#fedora", "#hardware", "#linux", "#MacOSX", "#csharp", "##politics"]
 
