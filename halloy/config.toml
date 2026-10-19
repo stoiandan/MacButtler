@@ -7,7 +7,7 @@ theme = "midnight"
 
 
 [servers.liberachat.sasl.plain]
-username= "dan01"
+username = "dan01"
 password_keyring = true
 
 [servers.liberachat]

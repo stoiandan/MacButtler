@@ -1,2 +1,5 @@
 #Mac files
 .DS_Store
+
+# Python validation artifacts
+__pycache__/
