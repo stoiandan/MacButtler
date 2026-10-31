@@ -7,7 +7,6 @@ theme = "midnight"
 
 
 [servers.liberachat.sasl.plain]
-username = "dan01"
 password_keyring = true
 
 [servers.liberachat]
@@ -15,6 +14,7 @@ nickname = "dan01"
 alt_nicks = ["dan101", "dan_the_guy","dan_the_101_guy"]
 server = "irc.libera.chat"
 channels = ["#halloy", "##programming", "#networking", "##apple", "#archlinux", "#fedora", "#hardware", "#linux", "#MacOSX", "#csharp", "##politics"]
+do_not_request = ["no-implicit-names"]
 
 # Replace pane when clicking on channel/user names in a pane,
 
